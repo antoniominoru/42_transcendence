@@ -34,9 +34,9 @@ vclean: down
 
 # Install docker compose
 prepare:
-    apt -y update && apt -y upgrade
-    apt -y install docker-compose-plugin
-    apt -y autoremove
+	apt -y update && apt -y upgrade
+	apt -y install docker-compose-plugin
+	apt -y autoremove
 
 # 42's way to clear all existing docker containers, networks, volumes and images
 preclean:
