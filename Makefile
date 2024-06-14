@@ -1,8 +1,5 @@
 # Docker compose command
-COMPOSE_CMD := docker-compose
-ifeq (, $(shell which $(COMPOSE_CMD)))
-    COMPOSE_CMD := docker compose
-endif
+COMPOSE_CMD := docker compose
 
 APP_DIR = app
 ELK_DIR = devops
@@ -34,6 +31,12 @@ fclean: fclean-elk fclean-app
 # Removes all volumes
 vclean: down
 	docker volume rm $(shell docker volume ls -q)
+
+# Install docker compose
+prepare:
+    apt -y update && apt -y upgrade
+    apt -y install docker-compose-plugin
+    apt -y autoremove
 
 # 42's way to clear all existing docker containers, networks, volumes and images
 preclean:
@@ -75,7 +78,8 @@ fclean-elk:
 .PHONY: all
 .PHONY: up up-app up-elk
 .PHONY: stop stop-app stop-elk
+.PHONY: restart restart-app restart-elk
 .PHONY: down down-app down-elk
 .PHONY: clean clean-app clean-elk
 .PHONY: fclean fclean-app fclean-elk
-.PHONY: preclean re
+.PHONY: prepare preclean re
