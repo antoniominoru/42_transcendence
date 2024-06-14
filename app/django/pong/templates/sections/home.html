@@ -1,9 +1,30 @@
 {% load static %}
 {% block buttons %}
-  <h1 class="text-center mt-3">Transcendence</h1>
-  <div class="d-flex flex-column mt-5 gap-5 col-12 align-items-center">
-    {% include "../components/avatar.html" %}
-    {% include "../components/buttons/play-local.html" %}
-    {% include "../components/buttons/play-tournament.html" %}
-  </div>
+    <h1 class="text-center mt-3">Transcendence</h1>
+    <div class="d-flex flex-column mt-5 gap-5 col-12 align-items-center">
+        {% include "../components/avatar.html" %}
+        {% include "../components/buttons/play-local.html" %}
+        {% include "../components/buttons/play-tournament.html" %}
+        <h2 class="text-center mt-3">Pong Controls</h2>
+        <div class="d-flex gap-5 fs-5">
+            <div class="d-block">
+                <h3 class="fs-3 mb-2">Player 1</h3>
+                <p>
+                    <strong>w</strong> - Move Up
+                </p>
+                <p>
+                    <strong>s</strong> - Move Down
+                </p>
+            </div>
+            <div class="d-block">
+                <h3 class="fs-3 mb-2">Player 2</h3>
+                <p>
+                    <strong>k</strong> - Move Up
+                </p>
+                <p>
+                    <strong>j</strong> - Move Down
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock buttons %}
